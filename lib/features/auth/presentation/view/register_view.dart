@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:hakawaty/features/auth/presentation/view/widgets/screen_title.dart';
 
 import 'widgets/register_view_body.dart';
@@ -12,6 +13,7 @@ class RegisterView extends StatelessWidget {
       body: Column(
         children: [
           ScreenTitle(title: 'Register'),
+          Gap(15),
           Expanded(child: RegisterViewBody()),
         ],
       ),
