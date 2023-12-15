@@ -5,7 +5,6 @@ import 'package:hakawaty/features/auth/presentation/view/widgets/custom_button.d
 import '../login_view.dart';
 import 'already_have_account.dart';
 import 'custom_text_form_field.dart';
-import 'screen_title.dart';
 
 class RegisterViewBody extends StatefulWidget {
   const RegisterViewBody({super.key});
