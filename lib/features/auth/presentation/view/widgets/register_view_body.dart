@@ -38,6 +38,17 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                 ),
                 const Gap(20),
                 CustomTextFormField(
+                  hintText: 'Phone',
+                  keyboardType: TextInputType.phone ,
+                  validator: (value) {
+                    if (value?.isEmpty ?? true) {
+                      return 'Field is required';
+                    }
+                    return null;
+                  },
+                ),
+                const Gap(20),
+                CustomTextFormField(
                   validator: (value) {
                     if (value?.isEmpty ?? true) {
                       return 'Field is required';
