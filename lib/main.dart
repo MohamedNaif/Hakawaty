@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hakawaty/const.dart';
 import 'package:hakawaty/features/auth/presentation/view/register_view.dart';
+import 'package:hakawaty/features/home/presentation/view/home_view.dart';
 
 // import 'features/home/presentation/view/home_view.dart';
 
@@ -19,9 +20,9 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           fontFamily: 'Cairo',
-          scaffoldBackgroundColor: kDarkColor,
+          scaffoldBackgroundColor: kLightColor,
         ),
-        home: const RegisterView(),
+        home: const HomeView(),
       ),
     );
   }
