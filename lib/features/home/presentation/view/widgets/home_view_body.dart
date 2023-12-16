@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 import '../../../../../const.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+  const HomeViewBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,24 +14,235 @@ class HomeViewBody extends StatelessWidget {
         centerTitle: true,
         elevation: 0,
         title: SizedBox(
-            height: 80,
-            width: 120,
-            child: Image.asset('assets/images/حكواتي-02.png')),
+          height: 100,
+          width: 120,
+          child: Image.asset('assets/images/حكواتي-03.png'),
+        ),
         actions: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.all(10),
             child: Container(
-              height: 50,
-              width: 30,
+              // height: 70,
+              width: 40,
               decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                      image: AssetImage(
-                          'assets/images/photo_2023-12-14_16-40-34.jpg'))),
-
-              // backgroundColor: Colors.black,
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image:
+                      AssetImage('assets/images/photo_2023-12-14_16-40-34.jpg'),
+                ),
+              ),
             ),
           )
+        ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Categories',
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.w700,
+                color: kDarkColor,
+              ),
+            ),
+            Gap(10),
+            CategoryList(),
+            Gap(20),
+            const Text(
+              'Top Story',
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.w700,
+                color: kDarkColor,
+              ),
+            ),
+            Gap(10),
+            Expanded(child: TopStoryList()),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CategoryList extends StatelessWidget {
+  final List<Map<String, String>> categories = [
+    {
+      'title': 'المحتوى الديني',
+      'subtitle': 'Subtitle 2',
+      'image': 'assets/images/المحتوى الديني.jpeg',
+    },
+    {
+      'title': 'التراث العربي',
+      'subtitle': 'Subtitle 1',
+      'image': 'assets/images/التراث .jpg',
+    },
+    {
+      'title': 'محتوى الطفل',
+      'subtitle': 'Subtitle 2',
+      'image': 'assets/images/محتوى الطفل.jpg',
+    },
+    {
+      'title': 'Category 2',
+      'subtitle': 'Subtitle 2',
+      'image': 'assets/images/التراث .jpg',
+    },
+    {
+      'title': 'Category 2',
+      'subtitle': 'Subtitle 2',
+      'image': 'assets/images/التراث .jpg',
+    },
+    // Add more categories as needed
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: List.generate(
+          categories.length,
+          (index) => CategoryCard(
+            title: categories[index]['title']!,
+            subtitle: categories[index]['subtitle']!,
+            image: categories[index]['image']!,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CategoryCard extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  final String image;
+
+  CategoryCard(
+      {required this.title, required this.subtitle, required this.image});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          margin: const EdgeInsets.all(8.0),
+          width: 200.0,
+          height: 200.0,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8.0),
+            image: DecorationImage(
+              image: AssetImage(image),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              title,
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w700,
+                color: kDarkColor,
+              ),
+            ),
+            Text(
+              subtitle,
+              style: const TextStyle(
+                  fontWeight: FontWeight.w100, color: kDarkColor),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class TopStoryList extends StatelessWidget {
+  final List<Map<String, String>> topStories = [
+    {
+      'title': 'Story 1',
+      'subtitle': 'Subtitle 1',
+      'image': 'assets/images/التراث .jpg'
+    },
+    {
+      'title': 'Story 1',
+      'subtitle': 'Subtitle 1',
+      'image': 'assets/images/التراث .jpg'
+    },
+    {
+      'title': 'Story 1',
+      'subtitle': 'Subtitle 1',
+      'image': 'assets/images/التراث .jpg'
+    },
+    {
+      'title': 'Story 1',
+      'subtitle': 'Subtitle 1',
+      'image': 'assets/images/التراث .jpg'
+    },
+
+    // Add more stories as needed
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: topStories.length,
+      itemBuilder: (context, index) {
+        return TopStoryCard(
+          title: topStories[index]['title']!,
+          subtitle: topStories[index]['subtitle']!,
+          image: topStories[index]['image']!,
+        );
+      },
+    );
+  }
+}
+
+class TopStoryCard extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  final String image;
+
+  TopStoryCard(
+      {required this.title, required this.subtitle, required this.image});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      trailing: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12),
+        child: Text('Author', style: TextStyle(fontWeight: FontWeight.bold)),
+      ),
+      contentPadding: EdgeInsets.all(8.0),
+      leading: Container(
+        width: 50,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8.0),
+          image: DecorationImage(
+            image: AssetImage(image),
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
+      title: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
+              Gap(4),
+              // SizedBox(height: 4.0),
+              Text(subtitle),
+            ],
+          ),
         ],
       ),
     );
