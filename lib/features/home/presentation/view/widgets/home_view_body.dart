@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../../../../const.dart';
+import '../../../../profile/presentation/view/profile.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({Key? key}) : super(key: key);
@@ -19,16 +20,26 @@ class HomeViewBody extends StatelessWidget {
           child: Image.asset('assets/images/حكواتي-03.png'),
         ),
         actions: [
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: Container(
-              // height: 70,
-              width: 40,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  image:
-                      AssetImage('assets/images/photo_2023-12-14_16-40-34.jpg'),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ProfileScreen(),
+                ),
+              );
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Container(
+                // height: 70,
+                width: 40,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: AssetImage(
+                        'assets/images/photo_2023-12-14_16-40-34.jpg'),
+                  ),
                 ),
               ),
             ),
