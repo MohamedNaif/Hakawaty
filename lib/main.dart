@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hakawaty/const.dart';
-import 'package:hakawaty/features/auth/presentation/view/register_view.dart';
 import 'package:hakawaty/features/home/presentation/view/home_view.dart';
 
 // import 'features/home/presentation/view/home_view.dart';

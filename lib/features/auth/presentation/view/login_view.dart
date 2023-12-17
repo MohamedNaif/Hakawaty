@@ -10,11 +10,13 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Column(children: [
-        ScreenTitle(title: 'Login') ,
-        Gap(15),
-        Expanded(child: LoginViewBody()) ,
-      ],),
+      body: Column(
+        children: [
+          ScreenTitle(title: 'Login'),
+          Gap(15),
+          Expanded(child: LoginViewBody()),
+        ],
+      ),
     );
   }
 }

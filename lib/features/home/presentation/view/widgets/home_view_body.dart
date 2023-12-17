@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../../../../const.dart';
+import '../../../../category/presentation/views/category_view.dart';
 import '../../../../profile/presentation/view/profile.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -38,7 +39,8 @@ class HomeViewBody extends StatelessWidget {
                   shape: BoxShape.circle,
                   image: DecorationImage(
                     image: AssetImage(
-                        'assets/images/photo_2023-12-14_16-40-34.jpg'),
+                      'assets/images/photo_2023-12-14_16-40-34.jpg',
+                    ),
                   ),
                 ),
               ),
@@ -59,9 +61,9 @@ class HomeViewBody extends StatelessWidget {
                 color: kDarkColor,
               ),
             ),
-            Gap(10),
+            const Gap(10),
             CategoryList(),
-            Gap(20),
+            const Gap(20),
             const Text(
               'Top Story',
               style: TextStyle(
@@ -70,7 +72,7 @@ class HomeViewBody extends StatelessWidget {
                 color: kDarkColor,
               ),
             ),
-            Gap(10),
+            const Gap(10),
             Expanded(child: TopStoryList()),
           ],
         ),
@@ -132,22 +134,30 @@ class CategoryCard extends StatelessWidget {
   final String subtitle;
   final String image;
 
-  CategoryCard(
-      {required this.title, required this.subtitle, required this.image});
+  const CategoryCard(
+      {super.key, required this.title, required this.subtitle, required this.image});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          margin: const EdgeInsets.all(8.0),
-          width: 200.0,
-          height: 200.0,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8.0),
-            image: DecorationImage(
-              image: AssetImage(image),
-              fit: BoxFit.cover,
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const CategoryView()),
+            );
+          },
+          child: Container(
+            margin: const EdgeInsets.all(8.0),
+            width: 200.0,
+            height: 200.0,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8.0),
+              image: DecorationImage(
+                image: AssetImage(image),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ),
@@ -227,11 +237,11 @@ class TopStoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      trailing: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
+      trailing: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 12),
         child: Text('Author', style: TextStyle(fontWeight: FontWeight.bold)),
       ),
-      contentPadding: EdgeInsets.all(8.0),
+      contentPadding: const EdgeInsets.all(8.0),
       leading: Container(
         width: 50,
         decoration: BoxDecoration(
@@ -248,8 +258,8 @@ class TopStoryCard extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
-              Gap(4),
+              Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
+              const Gap(4),
               // SizedBox(height: 4.0),
               Text(subtitle),
             ],
