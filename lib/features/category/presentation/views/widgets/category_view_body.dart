@@ -12,26 +12,37 @@ class CategoryViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: kHorizontalPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const ContentTitle(),
-          const Gap(15),
-          const ContentItems(),
-          const Gap(25),
-          const StoryItem(
+          ContentTitle(),
+          Gap(15),
+          ContentItems(),
+          Gap(25),
+          StoryItem(
             storyCover: 'assets/images/stories.jpg',
           ),
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 16),
-            height: 3,
-            color: kSecondaryColor,
-          ),
-          const StoryItem(storyCover: 'assets/images/story1.jpg')
+          BorderLine(),
+          StoryItem(storyCover: 'assets/images/story1.jpg')
         ],
       ),
+    );
+  }
+}
+
+class BorderLine extends StatelessWidget {
+  const BorderLine({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 16),
+      height: 3,
+      color: kSecondaryColor,
     );
   }
 }
