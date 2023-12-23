@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:hakawaty/const.dart';
+import 'package:flutter/material.dart';
+
 
 abstract class Style {
   static const TextStyle textStyle22 = TextStyle(
