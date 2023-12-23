@@ -12,7 +12,27 @@ class StoryCover extends StatelessWidget {
     double screenH = MediaQuery.of(context).size.height;
     return InkWell(
       onTap: () {
-        showDialog(
+        showDialogBox(context) ;
+      },
+      child: SizedBox(
+        height: screenH * 0.3,
+        child: AspectRatio(
+          aspectRatio: 2.5 / 4,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.yellow,
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage(storyCover),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+  void showDialogBox(BuildContext context){
+    showDialog(
           context: context,
           builder: (context) => AlertDialog(
             title: const Text('Confirmation'),
@@ -53,22 +73,5 @@ class StoryCover extends StatelessWidget {
             ],
           ),
         );
-      },
-      child: SizedBox(
-        height: screenH * 0.3,
-        child: AspectRatio(
-          aspectRatio: 2.5 / 4,
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.yellow,
-              image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage(storyCover),
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
   }
 }
