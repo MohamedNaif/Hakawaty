@@ -8,4 +8,9 @@ abstract class Style {
     fontWeight: FontWeight.w700,
     color: kDarkColor,
   );
+  static const TextStyle textStyle16 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    color: kDarkColor,
+  );
 }
