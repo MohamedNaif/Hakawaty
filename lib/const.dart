@@ -9,3 +9,4 @@ const kDarkColor = Color(0xFF101010);
 const kLogo = 'assets/images/حكواتي-03.png' ;
 const double kHorizontalPadding = 8.0 ;
 const double kAudioToolSize = 50 ;
+const String kAudioUrl = 'https://server6.mp3quran.net/abkr/001.mp3' ;
