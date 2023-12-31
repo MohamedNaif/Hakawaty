@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:hakawaty/core/utils/styles.dart';
-import 'package:hakawaty/features/audio/presentation/views/widgets/audio_slider.dart';
 
-import 'audio_player_buttons.dart';
+import 'audio_tools.dart';
 import 'book_cover_music.dart';
+import 'book_details.dart';
 
 class AudioViewBody extends StatefulWidget {
   const AudioViewBody({super.key});
@@ -27,30 +26,9 @@ class _AudioViewBodyState extends State<AudioViewBody> {
           heightRatioFromScreenHeight: 0.45,
         ),
         Gap(20),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text(
-              'Story Name',
-              style: Style.textStyle22,
-            ),
-          ),
-        ),
-        Align(
-          alignment: Alignment.bottomLeft,
-          child: Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text(
-              'Story description',
-              style: Style.textStyle16,
-            ),
-          ),
-        ),
+        BookDetails(),
         Gap(40),
-        AudioSlider(),
-        Gap(20),
-        AudioPlayerButtons(),
+        AudioTools(),
       ],
     );
   }
