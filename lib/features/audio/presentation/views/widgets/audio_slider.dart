@@ -8,21 +8,21 @@ class AudioSlider extends StatefulWidget {
 }
 
 class _AudioSliderState extends State<AudioSlider> {
-  double val = 0 ;
+  double val = 0;
   @override
   Widget build(BuildContext context) {
     return Slider(
-          activeColor: Colors.blue,
-          min: 0,
-          max: 100,
-          value: val,
-          onChanged: (value) {
-            setState(
-              () {
-                val = value;
-              },
-            );
+      activeColor: Colors.blue,
+      min: 0,
+      max: 100,
+      value: val,
+      onChanged: (value) {
+        setState(
+          () {
+            val = value;
           },
         );
+      },
+    );
   }
 }
